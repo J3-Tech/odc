@@ -10,10 +10,18 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "grunt": "^1.0.1",
     "morgan": "~1.7.0",
     "pdf-image": "^1.1.0",
     "pug": "~2.0.0-beta6",
     "serve-favicon": "~2.3.0",
     "unoconv": "^0.1.2"
+  },
+  "devDependencies": {
+    "grunt-bowercopy": "^1.2.4",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-notify": "^0.4.5",
+    "grunt-timer": "^0.6.0",
+    "load-grunt-tasks": "^3.5.2"
   }
 }

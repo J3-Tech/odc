@@ -1,13 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-
-
-  form(method="post")
-    fieldset
-        legend General
-        p
-            label(for="user[name]") Username:
-                input(type="text", name="user[name]", value="")
+    div.row
+        p.flow-text blah
+        form(method="post").col.s12
+            div.file-field.input-field
+                div.btn
+                    span file
+                    input(type="file")
+                div.file-path-wrapper
+                    input.file-path.validate(type="text")
