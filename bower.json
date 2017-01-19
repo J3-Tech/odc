@@ -1,0 +1,22 @@
+{
+  "name": "odc",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Dickriven Chellemboyee <jchellem@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.8"
+  }
+}
