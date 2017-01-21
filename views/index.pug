@@ -1,12 +1,25 @@
 extends layout
 
 block content
-    div.row
-        p.flow-text blah
-        form(method="post").col.s12
-            div.file-field.input-field
-                div.btn
-                    span file
-                    input(type="file")
-                div.file-path-wrapper
-                    input.file-path.validate(type="text")
+    div.section.no-pad-bot
+    div.container
+        div.row
+            p.flow-text.center Document Convertor provides the facility of converting almost all office documents into image which make documents viewable without the need of any office suite.
+            ul.collection.with-header
+                li.collection-header
+                    h4 Supported File Formats
+                li.collection-item Rich Text Format (rtf)
+                li.collection-item Open Document text (odt)
+                li.collection-item MS Word (doc, docx)
+                li.collection-item Open Document Spreedsheet (ods)
+                li.collection-item MS Excel (xls, xlsx)
+                li.collection-item Open Document Presentation (odp)
+                li.collection-item MS Powerpoint (ppt, pptx)
+                li.collection-item Portable Document Format (pdf)
+            form(method="post").col.s12
+                div.file-field.input-field
+                    div.btn
+                        span file
+                        input(type="file")
+                    div.file-path-wrapper
+                        input.file-path.validate(type="text")
