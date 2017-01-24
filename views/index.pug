@@ -16,10 +16,11 @@ block content
                 li.collection-item Open Document Presentation (odp)
                 li.collection-item MS Powerpoint (ppt, pptx)
                 li.collection-item Portable Document Format (pdf)
-            form(method="post").col.s12
+            form(action="/upload", method="post", enctype="multipart/form-data").col.s12
                 div.file-field.input-field
                     div.btn
                         span file
-                        input(type="file")
+                        input(type="file", name="document" accept="application/pdf")
                     div.file-path-wrapper
                         input.file-path.validate(type="text")
+                    button.btn(type="submit") Upload

@@ -32,3 +32,7 @@ npm-debug.log
 
 bower_components
 public/vendor
+
+
+upload
+upload/.gitkeep
