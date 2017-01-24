@@ -3,6 +3,7 @@
 var fs = require('fs');
 const EventEmitter = require('events');
 const path = require('path');
+var glob = require("glob")
 
 const OfficeConvertor = require('./convertor/office');
 const PdfConvertor = require('./convertor/pdf');
@@ -11,7 +12,7 @@ class Convertor extends EventEmitter
 {
     constructor() {
         super();
-        this.uploadDir = 'upload/' + Date.now();
+        this.uploadDir = 'public/documents/' + Date.now();
     }
 
     process(document) {
@@ -29,7 +30,13 @@ class Convertor extends EventEmitter
         var convertor = null;
         switch (path.extname(this.document)) {
             case '.pdf':
+                var that = this;
                 convertor = new PdfConvertor();
+                convertor.on('pdf.convert.img', (images) => {
+                    //glob(that.uploadDir + '/*.png', {  }, function (er, images) {
+                    that.emit('converted.img', images);
+                    //});
+                });
                 break;
             default:
                 convertor = new OfficeConvertor();

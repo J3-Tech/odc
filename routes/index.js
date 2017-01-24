@@ -14,6 +14,10 @@ router.post('/upload', function(req, res) {
     }
     var convertor = new Convertor();
     convertor.registerEvent().process(req.files.document);
+    convertor.on('converted.img', (images) => {
+        console.log(images);
+        res.render('output', { title: 'Document Convertor', images: images })
+    });
 });
 
 module.exports = router;
