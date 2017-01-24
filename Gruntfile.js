@@ -4,9 +4,10 @@ module.exports = function (grunt) {
             files: ['Gruntfile.js', '*.js'],
             options: {
                 ignores:[
+                    'convertor.js'
                 ],
                 globals: {
-                    jQuery: true
+                    jQuery: true,
                 }
             }
         },
@@ -29,7 +30,8 @@ module.exports = function (grunt) {
                 files: {
                     'jquery.min.js': 'jquery/dist/jquery.min.js',
                     'jquery.min.map': 'jquery/dist/jquery.min.map',
-                    'materialize.min.js': 'materialize/dist/js/materialize.min.js'
+                    'materialize.min.js': 'materialize/dist/js/materialize.min.js',
+                    'socket.io.min.js': 'socket.io-client/dist/socket.io.min.js',
                 }
             },
             css: {

@@ -19,6 +19,7 @@
     "pug": "~2.0.0-beta6",
     "read-chunk": "^2.0.0",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.7.2",
     "unoconv": "https://github.com/chellem/node-unoconv.git"
   },
   "devDependencies": {

@@ -4,7 +4,12 @@ const Convertor = require('./../convertor');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Document Convertor' });
+  res.render('index');
+});
+
+router.get('/output/:timestamp', function(req, res, next){
+    console.log(req.params.timestamp);
+    res.render('output');
 });
 
 router.post('/upload', function(req, res) {
