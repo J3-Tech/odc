@@ -34,7 +34,7 @@ bower_components
 public/vendor
 
 
-upload
-upload/.gitkeep
+public/documents
+!public/documents/.gitkeep
 
 *.pdf
