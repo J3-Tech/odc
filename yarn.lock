@@ -1496,6 +1496,13 @@ unoconv@^0.1.2:
     mime "1.2.x"
     underscore "1.4.x"
 
+"unoconv@https://github.com/chellem/node-unoconv.git":
+  version "0.1.2"
+  resolved "https://github.com/chellem/node-unoconv.git#9f720da40656ce7d0af7c0c402a8fa74a879be9f"
+  dependencies:
+    mime "1.2.x"
+    underscore "1.4.x"
+
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"

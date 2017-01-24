@@ -18,7 +18,7 @@
     "pug": "~2.0.0-beta6",
     "read-chunk": "^2.0.0",
     "serve-favicon": "~2.3.0",
-    "unoconv": "^0.1.2"
+    "unoconv": "https://github.com/chellem/node-unoconv.git"
   },
   "devDependencies": {
     "grunt-bowercopy": "^1.2.4",
