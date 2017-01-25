@@ -7,6 +7,7 @@ const path = require('path');
 const AbstractConvertor = require('./abstract.js');
 
 class OfficeConvertor extends AbstractConvertor {
+
     convert() {
         var that = this;
         unoconv.convert(this._document, 'pdf', function (err, result) {
@@ -18,6 +19,7 @@ class OfficeConvertor extends AbstractConvertor {
             }
         });
     }
+
 }
 
 module.exports = OfficeConvertor;

@@ -15,6 +15,8 @@
     "glob": "^7.1.1",
     "grunt": "^1.0.1",
     "morgan": "~1.7.0",
+    "node-natural-sort": "^0.8.6",
+    "node-zip": "^1.1.1",
     "pdf-image": "^1.1.0",
     "pug": "~2.0.0-beta6",
     "read-chunk": "^2.0.0",

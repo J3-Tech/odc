@@ -9,11 +9,18 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 
 var app = express();
-var io = require('socket.io')();
+
+/**
+ * Create HTTP server.
+ */
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('io', io); 
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -44,11 +51,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
 
-module.exports = app;
+
+module.exports = {
+    app: app,
+    server: server
+};

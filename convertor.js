@@ -12,7 +12,8 @@ class Convertor extends EventEmitter
 {
     constructor() {
         super();
-        this.uploadDir = 'public/documents/' + Date.now();
+        this.timestamp = Date.now();
+        this.uploadDir = 'public/documents/' + this.timestamp;
     }
 
     process(document) {
@@ -32,10 +33,8 @@ class Convertor extends EventEmitter
             case '.pdf':
                 var that = this;
                 convertor = new PdfConvertor();
-                convertor.on('pdf.convert.img', (images) => {
-                    //glob(that.uploadDir + '/*.png', {  }, function (er, images) {
-                    that.emit('converted.img', images);
-                    //});
+                convertor.on('pdf.convert.img', () => {
+                    that.emit('converted.img');
                 });
                 break;
             default:
