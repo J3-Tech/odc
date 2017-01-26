@@ -1,0 +1,10 @@
+image: docker:latest
+
+docker:build:
+  stage: build
+  services:
+  - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
+    - docker build -t registry.gitlab.com/chellem/odc .
+    - docker push registry.gitlab.com/chellem/odc
