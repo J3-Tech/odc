@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
     grunt.initConfig({
         jshint: {
-            files: ['Gruntfile.js', '*.js'],
+            files: ['Gruntfile.js'],
             options: {
                 ignores:[
                     'convertor.js'
@@ -30,6 +30,7 @@ module.exports = function (grunt) {
                 files: {
                     'jquery.min.js': 'jquery/dist/jquery.min.js',
                     'jquery.min.map': 'jquery/dist/jquery.min.map',
+                    'jquery.form.js': 'jquery-form/jquery.form.js',
                     'materialize.min.js': 'materialize/dist/js/materialize.min.js',
                     'socket.io.min.js': 'socket.io-client/dist/socket.io.min.js',
                 }
@@ -50,6 +51,22 @@ module.exports = function (grunt) {
                     'fonts': 'materialize/dist/fonts'
                 }
             }
+        },
+        uglify: {
+            target: {
+                options: {
+                    sourceMap: true,
+                },
+                files: {
+                    'public/js/script.min.js': [
+                        'public/vendor/js/jquery.min.js',
+                        'public/vendor/js/jquery.form.js',
+                        'public/vendor/js/materialize.min.js',
+                        'public/vendor/js/socket.io.min.js',
+                        'public/js/script.js'
+                    ]
+                }
+            }
         }
     });
 
@@ -59,6 +76,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'jshint',
         'notify_hooks',
-        'bowercopy'
+        'bowercopy',
+        'uglify'
     ]);
 };
