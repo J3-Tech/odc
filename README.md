@@ -6,7 +6,7 @@ Document Convertor provides the facility of converting almost all office documen
 Installation
 ------------
 
-Assuming you are on debian/ubuntu and node and npm already installed.
+Assuming you are on debian/ubuntu and node and npm or yarn already installed.
 
 ``` bash
 
