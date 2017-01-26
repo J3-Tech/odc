@@ -13,7 +13,6 @@ class PdfConvertor extends AbstractConvertor {
     convert() {
         this.process('png')
             .process('jpg')
-            .process('bmp')
         ;
     }
 
