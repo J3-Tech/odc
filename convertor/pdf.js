@@ -24,7 +24,7 @@ class PdfConvertor extends AbstractConvertor {
             for (var i = 0; i < numberOfPages; i++) {
                 pdfImage.convertPage(i).then(function (imagePath) {
                     if(i==numberOfPages){
-                        that.emit('pdf.convert.img');
+                        that.emit('pdf.convert.' + extension);
                     }
                 });
             }

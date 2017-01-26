@@ -4,6 +4,8 @@ var fs = require('fs');
 const EventEmitter = require('events');
 const path = require('path');
 var glob = require("glob")
+var sanitize = require("sanitize-filename");
+var slug = require("slug");
 
 const OfficeConvertor = require('./convertor/office');
 const PdfConvertor = require('./convertor/pdf');
@@ -19,9 +21,13 @@ class Convertor extends EventEmitter
     process(document) {
         var that = this;
         fs.mkdirSync(this.uploadDir);
-        this.document = this.uploadDir + '/' + document.name;
+        this.document = this.uploadDir + '/' + sanitize(document.name);
         document.mv(this.document, function(err){
             if(!err){
+                var ext = path.extname(that.document);
+                var newPath = that.uploadDir + '/' + slug(document.name.replace(ext, '')) + ext;
+                fs.renameSync(that.document, newPath);
+                that.document = newPath;
                 that.emit('document.saved');
             }
         });
@@ -33,7 +39,7 @@ class Convertor extends EventEmitter
             case '.pdf':
                 var that = this;
                 convertor = new PdfConvertor();
-                convertor.on('pdf.convert.img', () => {
+                convertor.on('pdf.convert.jpg', () => {
                     that.emit('converted.img');
                 });
                 break;

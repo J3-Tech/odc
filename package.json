@@ -20,7 +20,9 @@
     "pdf-image": "^1.1.0",
     "pug": "~2.0.0-beta6",
     "read-chunk": "^2.0.0",
+    "sanitize-filename": "^1.6.1",
     "serve-favicon": "~2.3.0",
+    "slug": "^0.9.1",
     "socket.io": "^1.7.2",
     "unoconv": "https://github.com/chellem/node-unoconv.git"
   },
