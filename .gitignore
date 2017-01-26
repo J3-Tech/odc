@@ -38,3 +38,5 @@ public/documents
 !public/documents/.gitkeep
 
 *.pdf
+
+public/js/script.min.*
