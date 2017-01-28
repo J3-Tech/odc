@@ -32,7 +32,6 @@ module.exports = function (grunt) {
                     'jquery.min.map': 'jquery/dist/jquery.min.map',
                     'jquery.form.js': 'jquery-form/jquery.form.js',
                     'materialize.min.js': 'materialize/dist/js/materialize.min.js',
-                    'socket.io.min.js': 'socket.io-client/dist/socket.io.min.js',
                 }
             },
             css: {
@@ -62,7 +61,6 @@ module.exports = function (grunt) {
                         'public/vendor/js/jquery.min.js',
                         'public/vendor/js/jquery.form.js',
                         'public/vendor/js/materialize.min.js',
-                        'public/vendor/js/socket.io.min.js',
                         'public/js/script.js'
                     ]
                 }
