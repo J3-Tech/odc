@@ -6,7 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "archiver": "^1.3.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
@@ -23,7 +22,6 @@
     "sanitize-filename": "^1.6.1",
     "serve-favicon": "~2.3.0",
     "slug": "^0.9.1",
-    "socket.io": "^1.7.2",
     "unoconv": "https://github.com/chellem/node-unoconv.git"
   },
   "devDependencies": {
@@ -34,5 +32,9 @@
     "grunt-timer": "^0.6.0",
     "load-grunt-tasks": "^3.5.2",
     "time-grunt": "^1.4.0"
+  },
+  "scripts": {
+      "install": "grunt",
+      "postuninstall": "grunt"
   }
 }
