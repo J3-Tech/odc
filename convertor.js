@@ -34,21 +34,23 @@ class Convertor extends EventEmitter
     }
 
     convert() {
+        var that = this;
         var convertor = null;
         switch (path.extname(this.document)) {
             case '.pdf':
-                var that = this;
                 convertor = new PdfConvertor();
-                convertor.on('pdf.convert.jpg', () => {
+                convertor.on('pdf.convert.img.png', () => {
                     that.emit('converted.img');
                 });
-                break;
+
+                return;
             default:
                 convertor = new OfficeConvertor();
                 convertor.on('doc.convert.pdf', (document) => {
-                    this.document = document;
-                    this.convert();
+                    that.document = document;
+                    that.convert();
                 });
+                break;
         }
         convertor.document = this.document;
         convertor.convert();
