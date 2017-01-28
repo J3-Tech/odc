@@ -17,6 +17,9 @@ class PdfConvertor extends AbstractConvertor {
         var that = this;
         var pdfImage = new PDFImage(this._document);
         pdfImage.setConvertExtension(extension);
+        pdfImage.setConvertOptions({
+            '-quality': '100'
+        });
         pdfImage.numberOfPages(function(){}).then(function(numberOfPages){
             for (var i = 0; i < numberOfPages; i++) {
                 pdfImage.convertPage(i).then(function (imagePath) {

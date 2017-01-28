@@ -13,13 +13,12 @@ router.get('/', function(req, res, next) {
 router.get('/output/:timestamp', function(req, res, next){
     var images = [];
     var finder = new Finder();
-    const compiledFunction = pug.compileFile('views/images.pug');
-        images = finder.get(req.params.timestamp +'/*.jpg');
-        res.render('output',{
-            images: images.map(function(image){
-                return image.replace('public/', '/');
-            })
-        });
+    images = finder.get(req.params.timestamp +'/*.jpg');
+    res.render('output',{
+        images: images.map(function(image){
+            return image.replace('public/', '/');
+        })
+    });
 });
 
 router.post('/upload', function(req, res) {

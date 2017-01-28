@@ -42,8 +42,7 @@ class Convertor extends EventEmitter
                 convertor.on('pdf.convert.img.png', () => {
                     that.emit('converted.img');
                 });
-
-                return;
+                break;
             default:
                 convertor = new OfficeConvertor();
                 convertor.on('doc.convert.pdf', (document) => {
