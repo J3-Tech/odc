@@ -4,12 +4,17 @@ $(document).ready(function(){
     var info = $('#info');
     var progress = $('.progress');
     var slider = $('.slider');
+    var select = $('select');
     if(slider.length){
         slider.slider();
     }
-    $('#document-input').on('change', function(e){
+    if(select.length){
+        select.material_select();
+    }
+    $('form').on('submit', function(e){
         e.preventDefault();
-        form.submit();
+        console.log($('form'));
+        //form.submit();
         progress.removeClass('hide');
     });
 });

@@ -27,7 +27,8 @@ router.post('/upload', function(req, res) {
         return;
     }
     var convertor = new Convertor();
-    convertor.registerEvent().process(req.files.document);
+    console.log(req.params('format'));
+    convertor.registerEvent().process(req.files.document, req.format);
     convertor.on('converted.img', () => {
         res.redirect('/output/' + convertor.timestamp);
     });

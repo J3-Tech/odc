@@ -21,9 +21,16 @@ block content
             div.progress.hide
                 div.indeterminate
             form(action="/upload", method="post", enctype="multipart/form-data").col.s12
-                div.file-field.input-field
+                div.file-field.input-field.col.s6
                     div.btn.waves-effect.waves-teal
                         span file
                         input#document-input(type="file", name="document" accept="application/pdf")
                     div.file-path-wrapper
                         input.file-path.validate(type="text")
+                div.input-field.col.s4
+                    select(name="format")
+                        option(value="", selected, disabled) Choose your format
+                        option(value="jpeg") JPEG
+                        option(value="png") PNG
+                div.input-field.col.s2.left
+                    button.btn.s12(type="submit") Convert

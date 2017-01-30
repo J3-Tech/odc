@@ -18,7 +18,7 @@ class Convertor extends EventEmitter
         this.uploadDir = 'public/documents/' + this.timestamp;
     }
 
-    process(document) {
+    process(document, format) {
         var that = this;
         fs.mkdirSync(this.uploadDir);
         this.document = this.uploadDir + '/' + sanitize(document.name);
