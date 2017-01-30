@@ -8,7 +8,7 @@ class Finder extends EventEmitter
     get(pattern, callback) {
         var output = [];
         var images = glob.sync('public/documents/'+ pattern);
-        var re = new RegExp(/-(\d+)\.[a-z]{3}$/);
+        var re = new RegExp(/-(\d+)\.[a-z]{3,4}$/);
         for (var i = 0; i < images.length; i++) {
             var index = parseInt(images[i].match(re).slice(1));
             output[index] = images[i];

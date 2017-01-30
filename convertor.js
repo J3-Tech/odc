@@ -22,6 +22,7 @@ class Convertor extends EventEmitter
         var that = this;
         fs.mkdirSync(this.uploadDir);
         this.document = this.uploadDir + '/' + sanitize(document.name);
+        this.format = format;
         document.mv(this.document, function(err){
             if(!err){
                 var ext = path.extname(that.document);
@@ -39,13 +40,18 @@ class Convertor extends EventEmitter
         switch (path.extname(this.document)) {
             case '.pdf':
                 convertor = new PdfConvertor();
-                convertor.on('pdf.convert.img.png', () => {
+                convertor.format = this.format;
+                convertor.on('pdf.convert.img', () => {
+                    if(that.deletePdf===true){
+                        fs.unlinkSync(this.document);
+                    }
                     that.emit('converted.img');
                 });
                 break;
             default:
                 convertor = new OfficeConvertor();
                 convertor.on('doc.convert.pdf', (document) => {
+                    that.deletePdf = true;
                     that.document = document;
                     that.convert();
                 });

@@ -13,8 +13,14 @@ $(document).ready(function(){
     }
     $('form').on('submit', function(e){
         e.preventDefault();
-        console.log($('form'));
-        //form.submit();
         progress.removeClass('hide');
+        $(this).ajaxSubmit({
+            error: function(xhr) {
+                output.html('Error: ' + xhr.status);
+            },
+            success: function(data) {
+                window.location.href= '/output/' + data.timestamp + '/' + data.format;
+            }
+        });
     });
 });

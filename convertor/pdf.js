@@ -6,17 +6,14 @@ const AbstractConvertor = require('./abstract.js');
 
 class PdfConvertor extends AbstractConvertor {
 
-    convert() {
-        this.process('jpg');
-        this.on('pdf.convert.img.jpg', function(){
-            this.process('png');
-        });
+    set format(format) {
+        this._format = format;
     }
 
-    process(extension) {
+    convert() {
         var that = this;
         var pdfImage = new PDFImage(this._document);
-        pdfImage.setConvertExtension(extension);
+        pdfImage.setConvertExtension(this._format);
         pdfImage.setConvertOptions({
             '-quality': '100'
         });
@@ -24,7 +21,7 @@ class PdfConvertor extends AbstractConvertor {
             for (var i = 0; i < numberOfPages; i++) {
                 pdfImage.convertPage(i).then(function (imagePath) {
                     if(i===parseInt(numberOfPages)){
-                        that.emit('pdf.convert.img.' + extension);
+                        that.emit('pdf.convert.img');
                     }
                 });
             }

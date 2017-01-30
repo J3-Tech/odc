@@ -24,11 +24,11 @@ block content
                 div.file-field.input-field.col.s6
                     div.btn.waves-effect.waves-teal
                         span file
-                        input#document-input(type="file", name="document" accept="application/pdf")
+                        input#document-input(type="file", name="document" accept="application/pdf, application/msoffice")
                     div.file-path-wrapper
                         input.file-path.validate(type="text")
                 div.input-field.col.s4
-                    select(name="format")
+                    select#format(name="format")
                         option(value="", selected, disabled) Choose your format
                         option(value="jpeg") JPEG
                         option(value="png") PNG
